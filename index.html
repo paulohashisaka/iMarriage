@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Convite digital de casamento de Angélica & Paulo, criado com carinho pelo iMarriage."
+    />
+    <title>iMarriage | Angélica & Paulo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Voltar para o início">iMarriage</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-menu" aria-label="Menu principal">
+        <a href="#convite">Convite</a>
+        <a href="#evento">Detalhes</a>
+        <a href="#historia">História</a>
+        <a href="#rsvp">Confirmar</a>
+        <a href="#presentes">Presentes</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero hero-piano" id="inicio" aria-label="Convite de casamento de Angélica e Paulo">
+        <div class="hero-photo-panel reveal">
+          <!-- Troque a imagem principal em script.js, no objeto weddingConfig.images.hero. -->
+          <img data-photo="hero" alt="Angélica e Paulo" />
+        </div>
+
+        <div class="hero-text-panel reveal">
+          <p class="hero-kicker">O nosso casamento</p>
+          <!-- Edite os nomes dos noivos aqui e em script.js se quiser manter tudo sincronizado. -->
+          <h1>Angélica <span>&</span> Paulo</h1>
+          <div class="hero-divider" aria-hidden="true"></div>
+          <!-- Edite a data visível aqui. A contagem regressiva fica em script.js. -->
+          <p class="wedding-date">25 de Dezembro de 2027</p>
+          <div class="hero-verse" aria-label="Versículo bíblico sobre casamento">
+            <p class="verse-highlight">“E serão os dois uma só carne.”</p>
+            <p class="verse-reference">Gênesis 2:24</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
+            <a class="btn btn-secondary" href="#evento">Ver detalhes</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section invitation" id="convite">
+        <div class="section-inner narrow reveal">
+          <p class="eyebrow">Nosso convite</p>
+          <h2>Um dia guardado com carinho</h2>
+          <p>
+            Com muita alegria e gratidão a Deus, convidamos você para celebrar conosco
+            o nosso casamento. Será um momento especial de fé, amor, família e gratidão.
+          </p>
+          <p class="script-note">A sua presença tornará esse dia ainda mais especial.</p>
+        </div>
+      </section>
+
+      <section class="section countdown-section" aria-labelledby="countdown-title">
+        <div class="section-inner narrow reveal">
+          <p class="eyebrow">Contagem regressiva</p>
+          <h2 id="countdown-title">Esperamos por você</h2>
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div>
+              <strong id="days">00</strong>
+              <span>Dias</span>
+            </div>
+            <div>
+              <strong id="hours">00</strong>
+              <span>Horas</span>
+            </div>
+            <div>
+              <strong id="minutes">00</strong>
+              <span>Minutos</span>
+            </div>
+            <div>
+              <strong id="seconds">00</strong>
+              <span>Segundos</span>
+            </div>
+          </div>
+          <p class="countdown-message" id="countdown-message"></p>
+        </div>
+      </section>
+
+      <section class="section event-info" id="evento">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Informações do evento</p>
+            <h2>Detalhes da celebração</h2>
+          </div>
+
+          <!-- Edite data, horário, cerimônia, recepção e traje nos blocos abaixo. -->
+          <div class="info-grid">
+            <article class="info-card reveal">
+              <span class="info-icon">01</span>
+              <p>Data</p>
+              <strong>25 de Dezembro de 2027</strong>
+            </article>
+            <article class="info-card reveal">
+              <span class="info-icon">02</span>
+              <p>Horário</p>
+              <strong>19:00</strong>
+            </article>
+            <article class="info-card reveal">
+              <span class="info-icon">03</span>
+              <p>Cerimônia</p>
+              <strong>Igreja Católica de Ota, Santa Clara</strong>
+            </article>
+            <article class="info-card reveal">
+              <span class="info-icon">04</span>
+              <p>Recepção</p>
+              <strong>Honjo City Community Hall</strong>
+            </article>
+            <article class="info-card reveal">
+              <span class="info-icon">05</span>
+              <p>Traje sugerido</p>
+              <strong>Social. Sugerimos vestidos longos ou midi para as mulheres, e terno e gravata para os homens. Pedimos a gentileza de reservarem o branco para a noiva.</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section location" id="localizacao">
+        <div class="section-inner location-panel reveal">
+          <div class="location-copy">
+            <p class="eyebrow">Localização</p>
+            <h2>Para chegar com tranquilidade</h2>
+            <p>
+              Para facilitar sua chegada, separamos abaixo a localização da cerimônia e
+              da recepção.
+            </p>
+          </div>
+
+          <div class="location-cards" aria-label="Localizações da cerimônia e recepção">
+            <article class="location-card">
+              <p class="location-label">Cerimônia</p>
+              <h3>Igreja Católica de Ota, Santa Clara</h3>
+              <p><strong>Horário:</strong> 19:00</p>
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/cNc5QZYiXHE6CQgB7" target="_blank" rel="noopener">
+                Abrir localização da igreja
+              </a>
+            </article>
+
+            <article class="location-card">
+              <p class="location-label">Recepção</p>
+              <h3>Honjo City Community Hall</h3>
+              <a class="btn btn-primary" href="https://maps.app.goo.gl/vSqYRxVwocaszWQ68" target="_blank" rel="noopener">
+                Abrir localização da recepção
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section story" id="historia">
+        <div class="section-inner story-layout">
+          <div class="story-copy reveal">
+            <p class="eyebrow">Nossa história</p>
+            <h2>Nossa história</h2>
+            <p>
+              Cada casal tem uma história única. A nossa foi construída com amor, fé,
+              companheirismo e muitos momentos especiais. Agora, queremos celebrar este
+              novo capítulo ao lado das pessoas que fazem parte da nossa vida.
+            </p>
+          </div>
+
+          <!-- Troque a imagem em script.js, no objeto weddingConfig.images.story. -->
+          <figure class="story-photo reveal">
+            <img data-photo="story" alt="Angélica e Paulo em um momento especial" />
+            <figcaption>Angélica & Paulo</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section gallery" id="galeria">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Galeria</p>
+            <h2>Momentos que guardamos com carinho</h2>
+          </div>
+
+          <!-- Edite a lista de fotos da galeria em script.js, no objeto weddingConfig.images.gallery. -->
+          <div class="gallery-grid" aria-label="Galeria de fotos do casal">
+            <figure class="gallery-item reveal"><img data-gallery-index="0" alt="Foto 1 do casal" /></figure>
+            <figure class="gallery-item reveal"><img data-gallery-index="1" alt="Foto 2 do casal" /></figure>
+            <figure class="gallery-item reveal"><img data-gallery-index="2" alt="Foto 3 do casal" /></figure>
+            <figure class="gallery-item reveal"><img data-gallery-index="3" alt="Foto 4 do casal" /></figure>
+            <figure class="gallery-item reveal"><img data-gallery-index="4" alt="Foto 5 do casal" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section rsvp" id="rsvp">
+        <div class="section-inner rsvp-layout">
+          <div class="rsvp-copy reveal">
+            <p class="eyebrow">Confirmação de presença</p>
+            <h2>Confirme sua presença</h2>
+            <p>
+              Sua resposta nos ajuda a preparar cada detalhe com carinho. Será uma alegria
+              celebrar esse dia ao seu lado.
+            </p>
+            <!-- Edite o WhatsApp de contato no texto do FAQ ou adicione um link aqui. -->
+          </div>
+
+          <form class="rsvp-form reveal" id="rsvp-form">
+            <label>
+              Nome completo
+              <input type="text" name="name" placeholder="Seu nome" required />
+            </label>
+
+            <label>
+              Quantidade de pessoas
+              <input type="number" name="guests" min="1" max="10" value="1" required />
+            </label>
+
+            <label>
+              Telefone ou WhatsApp
+              <input type="tel" name="phone" placeholder="(00) 00000-0000" required />
+            </label>
+
+            <label>
+              Mensagem opcional
+              <textarea name="message" rows="4" placeholder="Deixe uma mensagem para os noivos"></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Enviar confirmação</button>
+            <p class="form-feedback" id="form-feedback" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section gifts" id="presentes">
+        <div class="section-inner narrow reveal">
+          <p class="eyebrow">Com carinho</p>
+          <h2>Presentes</h2>
+          <p>
+            A sua presença é o nosso maior presente.
+          </p>
+          <p>
+            Como celebramos este momento no Japão, seguiremos também uma tradição especial
+            dos casamentos japoneses: o presente em envelope.
+          </p>
+          <p>
+            No dia da celebração, haverá uma caixa preparada para que cada família possa
+            deixar, com carinho, o seu envelope com uma contribuição em dinheiro.
+          </p>
+          <p>
+            Receber esse gesto de amor e bênção será muito especial para nós.
+          </p>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq">
+        <div class="section-inner">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Dúvidas frequentes</p>
+            <h2>Informações úteis</h2>
+          </div>
+
+          <div class="faq-list" data-accordion>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Preciso confirmar presença?
+              </button>
+              <div class="faq-answer">
+                <p>Sim. A confirmação nos ajuda a organizar melhor os lugares e a recepção. Por favor, confirme sua presença pelo formulário do site.</p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Posso levar acompanhante?
+              </button>
+              <div class="faq-answer">
+                <p>Pedimos que leve apenas as pessoas incluídas no convite. Caso tenha alguma dúvida, fale diretamente com os noivos.</p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Onde será a cerimônia?
+              </button>
+              <div class="faq-answer">
+                <p>A cerimônia será na Igreja Católica de Ota, Santa Clara, às 19:00.</p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Onde será a recepção?
+              </button>
+              <div class="faq-answer">
+                <p>A recepção será no Honjo City Community Hall. A localização está disponível na seção “Localização”.</p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Qual traje recomendado?
+              </button>
+              <div class="faq-answer">
+                <p>Sugerimos traje social. Sugerimos vestidos longos ou midi para as mulheres, e terno e gravata para os homens. Pedimos a gentileza de reservarem o branco para a noiva.</p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Como funcionará a parte dos presentes?
+              </button>
+              <div class="faq-answer">
+                <p>Seguiremos o estilo japonês de presentes em casamento. No local, haverá uma caixa para que cada família possa deixar um envelope com uma contribuição em dinheiro.</p>
+              </div>
+            </article>
+            <article class="faq-item reveal">
+              <button class="faq-question" type="button" aria-expanded="false">
+                Como posso falar com os noivos?
+              </button>
+              <div class="faq-answer">
+                <p><a href="https://wa.me/818042042248" target="_blank" rel="noopener">wa.me/818042042248</a></p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="section-inner narrow reveal">
+          <p class="script-note">Estamos muito felizes em compartilhar esse momento com você.</p>
+          <a class="btn btn-primary" href="#rsvp">Confirmar minha presença</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <strong>iMarriage by GIGUIBI</strong>
+      <p>Criado com carinho para Angélica & Paulo</p>
+      <small><span id="current-year"></span> - Convite digital de casamento</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
