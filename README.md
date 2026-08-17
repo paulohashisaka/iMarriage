@@ -1,196 +1,193 @@
-# iMarriage - Convite digital de casamento
+# iMarriage
 
-Versão clara/pérola do **iMarriage**, convite digital premium para o casamento de **Angélica & Paulo**.
+<div align="center">
 
-O visual desta variação foi inspirado em seda/cetim branco perolado: fundo off-white sofisticado, dobras visiveis criadas em CSS, brilho acetinado, textura fina de tecido, detalhes champagne/dourado, tipografia clássica e foto principal em preto e branco.
+**A refined digital wedding invitation for Angélica & Paulo, designed for a graceful and memorable guest experience.**
 
-## Como abrir localmente
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![Google Forms](https://img.shields.io/badge/RSVP-Google%20Forms-4285F4?logo=googleforms&logoColor=white)](https://www.google.com/forms/about/)
 
-Você pode abrir o arquivo `index.html` diretamente no navegador.
+</div>
 
-Para uma experiência melhor durante o desenvolvimento, use a extensão **Live Server** no VS Code:
+## Overview
 
-1. Abra a pasta do projeto no VS Code.
-2. Clique com o botão direito em `index.html`.
-3. Escolha **Open with Live Server**.
+iMarriage is a premium digital wedding invitation built for the celebration of **Angélica & Paulo**. It replaces a static invitation with an elegant, accessible page where guests can discover the event details, get directions, browse the couple's story and photo gallery, and confirm attendance.
 
-## Dados do casamento
+The design draws inspiration from pearl-white silk and satin: soft folds and highlights are created entirely with CSS, complemented by champagne-gold details, classic typography, and black-and-white photography.
 
-- Casal: **Angélica & Paulo**
-- Data: **25 de Dezembro de 2027**
-- Horário: **19:00**
-- Cerimônia: **Igreja Católica de Ota, Santa Clara**
-- Recepção: **Honjo City Community Hall**
-- Traje sugerido: **Esporte fino / social**
-- Versículo da hero: **“E serão os dois uma só carne.” — Gênesis 2:24**
+## Features
 
-## Localizações
+### Guest experience
 
-- Google Maps cerimônia: `https://maps.app.goo.gl/cNc5QZYiXHE6CQgB7`
-- Google Maps recepção: `https://maps.app.goo.gl/vSqYRxVwocaszWQ68`
+- Responsive, mobile-friendly wedding invitation
+- Countdown to the ceremony
+- Ceremony and reception details in one place
+- Direct Google Maps links for both venues
+- Couple story and curated photo gallery
+- Wedding gift guidance tailored to the Japanese celebration tradition
+- FAQ with practical information for guests
 
-Os links ficam em `index.html`, na seção `#localizacao`.
+### RSVP
 
-## Imagens em assets/
+- Simple confirmation form for name, guest count, phone number, and message
+- Background submission to a configurable Google Form
+- Local browser backup of submitted confirmations using `localStorage`
+- Immediate confirmation feedback after submission
 
-A imagem principal da hero é:
+### Design and usability
 
-- `assets/AngelicaePH100.png`
+- Pearl and satin effect created with native CSS, without external background images
+- Smooth anchor navigation and a responsive mobile menu
+- Scroll-reveal animations for page sections
+- Accessible labels, status feedback, and descriptive image alternatives
 
-Outras fotos usadas:
+## Tech Stack
 
-- Nossa história: `assets/AngelicaePH_027.JPG`
-- Galeria: `assets/AngelicaePH_040.JPG`
-- Galeria: `assets/AngelicaePH_034.JPG`
-- Galeria: `assets/AngelicaePH_008.JPG`
-- Galeria: `assets/AngelicaePH_021.JPG`
-- Galeria: `assets/AngelicaePH_033.JPG`
+| Area | Technology | Purpose |
+| --- | --- | --- |
+| Structure | HTML5 | Semantic invitation content and form markup |
+| Styling | CSS3 | Responsive layout, silk texture, typography, and animations |
+| Interactions | Vanilla JavaScript | Countdown, mobile navigation, gallery population, and RSVP handling |
+| RSVP delivery | Google Forms | Receives guest confirmations without a custom backend |
+| Persistence | Browser `localStorage` | Keeps a local copy of RSVP submissions on the guest's device |
+| Maps | Google Maps | Provides directions to the ceremony and reception venues |
+| Hosting | GitHub Pages | Static-site publishing option |
 
-Para trocar fotos, edite o objeto `weddingConfig.images` em `script.js`.
+## Architecture
 
-### Adicionando ou removendo fotos da galeria
+The project keeps its front end deliberately lightweight. `index.html` defines the invitation sections, `styles.css` contains the visual system and responsive behavior, and `script.js` centralizes event configuration and client-side interactions.
 
-A galeria (seção `#galeria`) tem duas partes que precisam ficar em sincronia:
-
-1. A lista `weddingConfig.images.gallery` em `script.js` — uma foto por linha.
-2. Os blocos `<figure class="gallery-item reveal">` dentro de `.gallery-grid` em `index.html` — um bloco por foto, com `data-gallery-index` sequencial (`0`, `1`, `2`, ...).
-
-**A quantidade de blocos no HTML precisa ser igual à quantidade de fotos na lista do `script.js`.** Se sobrar um bloco a mais no HTML, o script preenche esse espaço repetindo uma foto (calcula `índice % quantidade de fotos`), em vez de deixar vazio.
-
-Se mudar a quantidade de fotos, o mosaico da galeria em `styles.css` (regras `.gallery-item:nth-child(...)` dentro do `.gallery-grid`, tanto a versão mobile quanto a de telas maiores a partir de `@media (min-width: 720px)`) também pode precisar de ajuste, já que os espaçamentos (`grid-column`/`grid-row`) foram desenhados para a quantidade atual de fotos.
-
-## Countdown
-
-A contagem regressiva usa:
-
-```js
-weddingDate: "2027-12-25T19:00:00"
+```mermaid
+flowchart LR
+    Guest["Guest browser"] --> Page["index.html"]
+    Page --> Styles["styles.css\nLayout and visual design"]
+    Page --> Script["script.js\nInteractions and configuration"]
+    Script --> Countdown["Wedding countdown"]
+    Script --> Gallery["Photo gallery"]
+    Script --> RSVP["RSVP form"]
+    RSVP --> Local["localStorage backup"]
+    RSVP --> Forms["Google Forms"]
+    Page --> Maps["Google Maps directions"]
 ```
 
-Edite esse valor em `script.js` se a data ou horário mudar.
+### Main files
 
-## Presentes
+- **`index.html`:** invitation content, event information, venue links, RSVP form, gifts, and FAQ
+- **`styles.css`:** color tokens, pearl-satin background, responsive grid, buttons, and animations
+- **`script.js`:** wedding configuration, countdown, navigation, gallery rendering, and RSVP submission
+- **`assets/`:** the couple's hero, story, and gallery photographs
 
-A seção **Presentes** segue o estilo japonês de casamento:
+## Wedding Information
 
-- Não há lista de presentes online.
-- Não há Pix.
-- Não há contribuição digital.
-- No dia da celebração, haverá uma caixa para envelopes com contribuição em dinheiro.
+| Detail | Information |
+| --- | --- |
+| Couple | Angélica & Paulo |
+| Date | December 25, 2027 |
+| Time | 7:00 PM |
+| Ceremony | Igreja Católica de Ota, Santa Clara |
+| Reception | Honjo City Community Hall |
+| Dress code | Smart casual / formal attire |
+| Hero verse | “Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh.” — Genesis 2:24 |
 
-O texto fica em `index.html`, na seção `#presentes`.
+## Project Structure
 
-## Como editar cores
-
-As cores principais ficam em `styles.css`, no `:root`:
-
-```css
-:root {
-  --color-bg: #f7f4ee;
-  --color-bg-soft: #fffdfa;
-  --color-pearl: #eee7dd;
-  --color-silk-shadow: rgba(166, 154, 140, 0.52);
-  --color-silk-highlight: rgba(255, 255, 255, 0.95);
-  --color-surface: rgba(255, 250, 244, 0.72);
-  --color-card: rgba(255, 253, 249, 0.82);
-  --color-text: #2b2723;
-  --color-muted: #756b61;
-  --color-gold: #b89b6a;
-  --color-gold-soft: #d9c3a5;
-  --color-line: rgba(184, 155, 106, 0.18);
-}
+```text
+iMarriage/
+├── assets/              # Wedding photographs
+├── index.html           # Invitation page
+├── script.js            # Configuration and client-side behavior
+├── styles.css           # Visual design and responsive styles
+└── README.md
 ```
 
-`--color-gold` e `--color-gold-soft` controlam todos os detalhes dourado/champagne do site: eyebrows, bordas, botões, ícones, contagem regressiva, etc.
+## Running Locally
 
-## Como editar textura/fundo
+### Prerequisites
 
-A sensação de seda/cetim branco é feita apenas com CSS, sem imagem externa. A versão atual foi intensificada para parecer mais com tecido de cetim branco/perolado, com dobras maiores, brilho mais presente e uma trama fina quase imperceptivel.
+- A modern web browser
+- Optionally, the VS Code **Live Server** extension for local development
 
-Edite em `styles.css`:
+### Installation
 
-- `body`: base off-white/perolada e reflexos radiais grandes.
-- `body::before`: dobras organicas maiores, sombras peroladas e ondas principais do tecido.
-- `body::after`: brilho acetinado em faixas longas e textura fina de trama.
-- `.hero-text-panel`: fundo claro da hero com dobras e brilho integrados ao tecido.
-- `.section`, `.section:nth-of-type(even)` e secoes como `.invitation`, `.countdown-section`, `.event-info`, `.location`, `.gifts`, `.faq` e `.final-cta`: camadas claras para manter o site inteiro dentro da sensacao de seda/cetim.
+1. Clone the repository:
 
-Para ajustar a intensidade da textura, altere no `:root`:
+   ```bash
+   git clone https://github.com/paulohashisaka/iMarriage.git
+   cd iMarriage
+   ```
 
-```css
---silk-fold-opacity: 1;
---silk-sheen-opacity: 0.92;
---silk-blur: 8px;
-```
+2. Open `index.html` directly in a browser, or start it with Live Server in VS Code.
 
-- Ajuste `--silk-fold-opacity` para controlar a intensidade das dobras.
-- Ajuste `--silk-sheen-opacity` para controlar o brilho acetinado.
-- Ajuste `--silk-blur` para controlar a nitidez das ondas: valores menores deixam as dobras mais definidas; valores maiores deixam o fundo mais difuso.
+3. With Live Server, right-click `index.html` and choose **Open with Live Server**.
 
-Para ajustar brilho e sombras do efeito de tecido, altere:
+## Configuration
 
-```css
---color-silk-highlight: rgba(255, 255, 255, 0.95);
---color-silk-shadow: rgba(166, 154, 140, 0.52);
-```
+Wedding-specific settings are grouped in `weddingConfig` inside `script.js`.
 
-Para ajustar as cores do fundo acetinado, altere `--color-bg`, `--color-bg-soft` e `--color-pearl`. Para manter legibilidade sobre o fundo, os cards, formulario, countdown e blocos de localizacao usam `--color-card` e `--color-surface` com transparencia leve e `backdrop-filter`.
+| To update | Where |
+| --- | --- |
+| Countdown date and time | `weddingConfig.weddingDate` in `script.js` |
+| Hero, story, and gallery photos | `weddingConfig.images` in `script.js` |
+| RSVP local storage key | `weddingConfig.storageKey` in `script.js` |
+| Google Form endpoint and field IDs | `weddingConfig.googleForm` in `script.js` |
+| Visible event details and Maps links | `index.html` |
+| Colors, satin texture, and typography | CSS variables in `styles.css` |
 
-## Onde editar dados e links
+### Google Forms RSVP setup
 
-- Data visível da hero: `index.html`
-- Cards do evento: `index.html`
-- Links do Google Maps: `index.html`, seção `#localizacao`
-- Versículo da hero: `index.html`, bloco `.hero-verse`
-- Fotos: `script.js`, objeto `weddingConfig.images`
-- Countdown: `script.js`, `weddingDate`
-- Formulário RSVP: `script.js`, chave `storageKey` e lógica de `localStorage`
-
-## Confirmações de presença (RSVP) chegando no Google Forms
-
-O formulário `#rsvp-form` (em `index.html`) envia cada confirmação para um Google Form em segundo plano, além de salvar uma cópia no `localStorage` do navegador do convidado.
-
-Isso é configurado em `script.js`, no objeto `weddingConfig.googleForm`:
+Update the `googleForm` configuration in `script.js` with your Google Form submission URL and field IDs:
 
 ```js
 googleForm: {
-  action: "https://docs.google.com/forms/d/e/SEU_ID/formResponse",
+  action: "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse",
   fields: {
-    name: "entry.913601345",
-    guests: "entry.1637397982",
-    phone: "entry.142333713",
-    message: "entry.725774774",
+    name: "entry.000000000",
+    guests: "entry.000000000",
+    phone: "entry.000000000",
+    message: "entry.000000000",
   },
 },
 ```
 
-- `action`: link do Google Form trocando `/viewform` por `/formResponse`.
-- `fields`: os códigos `entry.XXXXXXX` de cada pergunta do seu Form (ficam no HTML do Form; podem mudar se você recriar as perguntas).
-- Se você recriar o Google Form do zero, os números de `entry.` mudam — é só pegar os novos e atualizar aqui.
-- As respostas caem na aba "Respostas" do Form (e na planilha do Google Sheets vinculada, se você conectar uma). Para ser avisado por e-mail a cada nova resposta: na planilha de respostas, vá em **Ferramentas → Regras de notificação**.
+Use the Form's `formResponse` endpoint rather than its public `viewform` URL. If the form is recreated, update the `entry.*` field IDs as well.
 
-## Como publicar no GitHub Pages
+### Updating the gallery
 
-1. Crie um repositório no GitHub.
-2. Envie `index.html`, `styles.css`, `script.js`, `README.md` e a pasta `assets/`.
-3. Acesse **Settings > Pages**.
-4. Em **Build and deployment**, selecione a branch principal.
-5. Aguarde o GitHub gerar o link público.
+Keep the number of images in `weddingConfig.images.gallery` synchronized with the `<img data-gallery-index="...">` elements in `index.html`. If the gallery size changes, review the `.gallery-grid` and `.gallery-item:nth-child(...)` rules in `styles.css` so the mosaic layout still fits the new number of photos.
 
-## Notas de manutenção (2026-07-08)
+## Deployment
 
-Correções feitas em `styles.css` / `index.html`:
+This is a static site and can be published through GitHub Pages:
 
-- Removido `-webkit-mask-image` de `.btn`: era um hack antigo do Safari que, em navegadores atuais, esmaecia as bordas do botão em vez de só corrigir o clipping do fundo. `background-clip: padding-box` já resolve isso sozinho.
-- `.script-note` (frases em fonte cursiva) estava com o `font-size` travado por `.narrow p`, que tem especificidade maior. Foi criada a regra `.narrow p.script-note` para garantir que o tamanho definido realmente seja aplicado.
-- As media queries `@media (max-width: 460px)` e `@media (max-width: 600px)` estavam na ordem errada: como as duas se aplicam ao mesmo tempo em telas ≤460px, a de 600px (que vinha depois no arquivo) sobrescrevia os ajustes pensados para telas bem pequenas. A ordem foi corrigida (600px antes de 460px) para que o bloco mais específico vença.
-- Removida a classe `btn-on-dark` do botão "Ver detalhes" na hero: não existia nenhuma regra CSS para ela, então não tinha efeito nenhum.
+1. Push `index.html`, `styles.css`, `script.js`, `README.md`, and `assets/` to a GitHub repository.
+2. Open **Settings → Pages** in the repository.
+3. Select the main branch as the publishing source.
+4. Save and wait for GitHub Pages to provide the public URL.
 
-## Próximos passos da V2
+## Technical Decisions and What I Learned
 
-- Integrar RSVP com banco de dados real.
-- Criar painel de confirmações para os noivos.
-- Criar templates para outros casais.
-- Adicionar versão em japonês.
-- Otimizar imagens para carregamento mais rápido.
-- Transformar o iMarriage em produto comercial com temas e painel administrativo.
+### Creating a premium visual identity with CSS
+
+The satin background uses layered gradients, subtle repeating textures, opacity tokens, and blur instead of a large background image. This preserves the intended textile feel while keeping the page lightweight and easy to customize.
+
+### Keeping a static RSVP flow practical
+
+Google Forms makes it possible to collect confirmations without maintaining a server or database. The page also stores a local copy of each submission, which provides a small resilience layer for the guest's session.
+
+### Centralizing changeable content
+
+Photos, the wedding date, RSVP endpoint, and form field identifiers are grouped in `weddingConfig`. This makes the invitation easier to adapt without searching through the interaction code.
+
+### Designing an invitation for every screen size
+
+The layout, navigation, gallery, and action buttons adapt from desktop to compact mobile screens, where most guests are likely to open the invitation.
+
+## Author
+
+**Paulo Hashisaka**
+
+- [GitHub](https://github.com/paulohashisaka)
+- Based in Japan
+- Web development learner focused on practical, multilingual products
